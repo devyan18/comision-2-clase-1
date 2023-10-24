@@ -6,16 +6,15 @@ const miPromesa = new Promise((res, rej) => {
 })
 
 // asdasd
-// miPromesa
-//   .then((info) => {
-//     console.log("then")
-//     console.log(info )
-//   })
-//   .catch((error) => {
-//     console.log("catch")
-//     console.log(error)
-//   })
-//   .finally(() => {
-//     console.log("si o si")
-//   })
-
+miPromesa
+  .then((info) => {
+    console.log("then")
+    console.log(info )
+  })
+  .catch((error) => {
+    console.log("catch")
+    console.log(error)
+  })
+  .finally(() => {
+    console.log("si o si")
+  })
