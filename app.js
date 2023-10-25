@@ -1,20 +1,8 @@
-const miPromesa = new Promise((res, rej) => {
-  setTimeout(() => {
-    //rej("hubo un erro, no me devolvio la plata.")
-    res("Me devolvio la plata.")
-  }, 200)
+const { createServer } = require("node:http")
+
+const servidor = createServer((req, res) => {
+  res.end("Hola desde mi servidor http")
 })
 
-// asdasd
-miPromesa
-  .then((info) => {
-    console.log("then")
-    console.log(info )
-  })
-  .catch((error) => {
-    console.log("catch")
-    console.log(error)
-  })
-  .finally(() => {
-    console.log("si o si")
-  })
+servidor.listen(3000)
+console.log("Server listening on port 3000")
