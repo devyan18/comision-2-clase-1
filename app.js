@@ -1,8 +1,12 @@
-const { createServer } = require("node:http")
+import express from "express"
 
-const servidor = createServer((req, res) => {
-  res.end("Hola desde mi servidor http")
-})
+const app = express()
 
-servidor.listen(3000)
-console.log("Server listening on port 3000")
+app.listen(3000)
+console.log("server on port 3000")
+
+// GET --> Obtener recursos
+// POST --> Crear recursos
+// PATCH --> Editar recursos ya creados de forma parcial
+// DELETE --> Eliminar recursos
+// PUT --> Editar un recursos si existe y sino, lo crea.
