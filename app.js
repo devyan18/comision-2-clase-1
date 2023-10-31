@@ -1,12 +1,24 @@
-import express from "express"
+import express from "express";
+import cors from "cors";
+import helmet from "helmet";
+import morgan from "morgan";
 
-const app = express()
+import { postsRouter } from "./routes/post-routes.js";
 
-app.listen(3000)
-console.log("server on port 3000")
+import { env } from "./settings/envs.js";
 
-// GET --> Obtener recursos
-// POST --> Crear recursos
-// PATCH --> Editar recursos ya creados de forma parcial
-// DELETE --> Eliminar recursos
-// PUT --> Editar un recursos si existe y sino, lo crea.
+const app = express();
+
+// middlewares
+app.use(express.json());
+app.use(morgan("dev"));
+app.use(cors());
+app.use(helmet());
+
+// app.use(validatePost);
+
+app.use("/posts", postsRouter);
+
+app.listen(env.PORT, () => {
+  console.log(`server on port ${env.PORT}`);
+});
