@@ -1,6 +1,8 @@
+import { v4 as uuid } from "uuid";
+
 let listOfPosts = [
   {
-    id: Date.now(),
+    id: uuid(),
     title: "React",
     desc: "Mi primer app",
     image:
@@ -11,7 +13,7 @@ let listOfPosts = [
 const createNewPost = ({ title, desc, image }) => {
   if (!title) return null;
 
-  const newPost = { id: Date.now(), title, desc, image };
+  const newPost = { id: uuid(), title, desc, image };
 
   listOfPosts.push(newPost);
 
@@ -23,9 +25,7 @@ const getAllPosts = () => {
 };
 
 const getPostById = ({ id }) => {
-  console.log(id);
   const post = listOfPosts.find((post) => post.id === id);
-
   return post;
 };
 

@@ -9,15 +9,12 @@ export function ctrlCreatePost(req, res) {
 }
 
 export const ctrlGetAllPosts = (req, res) => {
-  const posts = postModel.findAll();
-
+  const posts = postModel.findAll(req.user.id);
   res.json(posts);
 };
 
 export const ctrlGetPostById = (req, res) => {
   const { postId } = req.params;
-
-  console.log(req.params);
 
   const post = postModel.findOne({ id: postId });
 
